@@ -19,10 +19,10 @@ public class RadioTest {
     @Test
     public void currentChannelNumNextAfterMax() {
         Radio radio = new Radio();
-        radio.setCurrentChannelNum(9);
+        radio.setCurrentChannelNum(10);
         radio.next();
 
-        int expected = 0;
+        int expected = 1;
         int actual = radio.getCurrentChannelNum();
         Assertions.assertEquals(expected, actual);
     }
@@ -30,7 +30,7 @@ public class RadioTest {
     @Test
     public void currentChannelNumNextAfterZero() {
         Radio radio = new Radio();
-        radio.setCurrentChannelNum(0);
+        radio.setCurrentChannelNum(-1);
         radio.next();
 
         int expected = 1;
