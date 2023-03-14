@@ -6,6 +6,15 @@ public class RadioTest {
 
 
     @Test
+    public void testRadio(){
+        Radio radio = new Radio(20);
+        radio.setCurrentChannelNum (10);
+        int expected = 10;
+        int actual = radio.getCurrentChannelNum();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void increaseVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(8);

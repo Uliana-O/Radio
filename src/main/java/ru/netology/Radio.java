@@ -3,6 +3,17 @@ package ru.netology;
 public class Radio {
     private int currentChannelNum;
     private int currentVolume;
+    private int maxStation;
+
+
+    public Radio() {
+        maxStation = 9;
+    }
+
+    public Radio(int stationCount) {
+        maxStation = stationCount - 1;
+    }
+
 
     public int getCurrentChannelNum() {
         return currentChannelNum;
@@ -12,7 +23,7 @@ public class Radio {
         if (currentChannelNum < 0) {
             return;
         }
-        if (currentChannelNum > 9) {
+        if (currentChannelNum > maxStation) {
             return;
         }
         this.currentChannelNum = currentChannelNum;
