@@ -7,7 +7,7 @@ public class Radio {
 
 
     public Radio() {
-        maxStation = 9;
+        maxStation = 20;
     }
 
     public Radio(int stationCount) {
@@ -44,7 +44,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentChannelNum != 9) {
+        if (currentChannelNum != 20) {
             currentChannelNum++;
         } else {
             currentChannelNum = 0;
@@ -56,7 +56,7 @@ public class Radio {
         if (currentChannelNum != 0) {
             currentChannelNum--;
         } else {
-            currentChannelNum = 9;
+            currentChannelNum = 20;
         }
     }
 }

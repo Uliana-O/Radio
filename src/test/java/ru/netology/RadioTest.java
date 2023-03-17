@@ -13,7 +13,30 @@ public class RadioTest {
         int actual = radio.getCurrentChannelNum();
         Assertions.assertEquals(expected, actual);
     }
-
+    @Test
+    public void testRadioPrev(){
+        Radio radio = new Radio(20);
+        radio.setCurrentChannelNum (0);
+        int expected = 0;
+        int actual = radio.getCurrentChannelNum();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void testRadioNext(){
+        Radio radio = new Radio(20);
+        radio.setCurrentChannelNum (19);
+        int expected = 19;
+        int actual = radio.getCurrentChannelNum();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void testRadioAboveMax(){
+        Radio radio = new Radio(20);
+        radio.setCurrentChannelNum (21);
+        int expected = 0;
+        int actual = radio.getCurrentChannelNum();
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
     public void increaseVolume() {
         Radio radio = new Radio();
@@ -73,7 +96,7 @@ public class RadioTest {
         radio.setCurrentChannelNum(0);
         radio.prev();
 
-        int expected = 9;
+        int expected = 20;
         int actual = radio.getCurrentChannelNum();
         Assertions.assertEquals(expected, actual);
     }
@@ -95,7 +118,7 @@ public class RadioTest {
         radio.setCurrentChannelNum(0);
         radio.prev();
 
-        int expected = 9;
+        int expected = 20;
         int actual = radio.getCurrentChannelNum();
         Assertions.assertEquals(expected, actual);
     }
@@ -114,11 +137,11 @@ public class RadioTest {
     @Test
     public void currentChannelNumNextAfterMax() {
         Radio radio = new Radio();
-        radio.setCurrentChannelNum(10);
+        radio.setCurrentChannelNum(20);
         radio.next();
 
 
-        int expected = 1;
+        int expected = 0;
         int actual = radio.getCurrentChannelNum();
         Assertions.assertEquals(expected, actual);
     }
@@ -144,7 +167,7 @@ public class RadioTest {
     }
 
     @Test
-    public void currentChannelNumUnderNine() {
+    public void currentChannelNumUnderMin() {
         Radio radio = new Radio();
         radio.setCurrentChannelNum(-1);
 
@@ -155,13 +178,14 @@ public class RadioTest {
     @Test
     public void currentChannelNumLast() {
         Radio radio = new Radio();
-        radio.setCurrentChannelNum(9);
+        radio.setCurrentChannelNum(20);
         radio.next();
 
         int expected = 0;
         int actual = radio.getCurrentChannelNum();
         Assertions.assertEquals(expected, actual);
     }
+
 }
 
 
