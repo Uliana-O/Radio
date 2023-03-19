@@ -44,7 +44,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentChannelNum != 20) {
+        if (currentChannelNum != maxStation) {
             currentChannelNum++;
         } else {
             currentChannelNum = 0;
