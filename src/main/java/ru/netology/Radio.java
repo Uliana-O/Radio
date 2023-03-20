@@ -56,7 +56,7 @@ public class Radio {
         if (currentChannelNum != 0) {
             currentChannelNum--;
         } else {
-            currentChannelNum = 20;
+            currentChannelNum = maxStation;
         }
     }
 }
